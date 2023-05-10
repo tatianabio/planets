@@ -3,37 +3,144 @@ import reactLogo from './assets/react.svg';
 import viteLogo from './assets/vite.svg';
 import './App.css';
 
+interface IPlanet {
+    name: string,
+    rotation_period: number,
+    orbital_period: number,
+    diameter: number,
+    climate: string,
+    gravity: string,
+    terrain: string,
+    surface_water: number,
+    population: number | 'unknown',
+    residents: string[],
+    films: string[],
+    created: string,
+    edited: string,
+    url: string
+}
+
 function App() {
-  const [count, setCount] = useState(0);
+    const planets: IPlanet[] = [
+        {
+            name: 'Tatooine',
+            rotation_period: 23,
+            orbital_period: 304,
+            diameter: 10465,
+            climate: 'arid',
+            gravity: '1 standard',
+            terrain: 'desert',
+            surface_water: 1,
+            population: 200000,
+            residents: [
+                'https://swapi.dev/api/people/1/',
+                'https://swapi.dev/api/people/2/',
+                'https://swapi.dev/api/people/4/',
+                'https://swapi.dev/api/people/6/',
+                'https://swapi.dev/api/people/7/',
+                'https://swapi.dev/api/people/8/',
+                'https://swapi.dev/api/people/9/',
+                'https://swapi.dev/api/people/11/',
+                'https://swapi.dev/api/people/43/',
+                'https://swapi.dev/api/people/62/'
+            ],
+            films: [
+                'https://swapi.dev/api/films/1/',
+                'https://swapi.dev/api/films/3/',
+                'https://swapi.dev/api/films/4/',
+                'https://swapi.dev/api/films/5/',
+                'https://swapi.dev/api/films/6/'
+            ],
+            created: '2014-12-09T13:50:49.641000Z',
+            edited: '2014-12-20T20:58:18.411000Z',
+            url: 'https://swapi.dev/api/planets/1/'
+        },
+        {
+            name: 'Alderaan',
+            rotation_period: 24,
+            orbital_period: 364,
+            diameter: 12500,
+            climate: 'temperate',
+            gravity: '1 standard',
+            terrain: 'grasslands, mountains',
+            surface_water: 40,
+            population: 2000000000,
+            residents: [
+                'https://swapi.dev/api/people/5/',
+                'https://swapi.dev/api/people/68/',
+                'https://swapi.dev/api/people/81/'
+            ],
+            films: [
+                'https://swapi.dev/api/films/1/',
+                'https://swapi.dev/api/films/6/'
+            ],
+            created: '2014-12-10T11:35:48.479000Z',
+            edited: '2014-12-20T20:58:18.420000Z',
+            url: 'https://swapi.dev/api/planets/2/'
+        },
+        {
+            name: 'Yavin IV',
+            rotation_period: 24,
+            orbital_period: 4818,
+            diameter: 10200,
+            climate: 'temperate, tropical',
+            gravity: '1 standard',
+            terrain: 'jungle, rainforests',
+            surface_water: 8,
+            population: 1000,
+            residents: [],
+            films: [
+                'https://swapi.dev/api/films/1/'
+            ],
+            created: '2014-12-10T11:37:19.144000Z',
+            edited: '2014-12-20T20:58:18.421000Z',
+            url: 'https://swapi.dev/api/planets/3/'
+        },
+        {
+            name: 'Hoth',
+            rotation_period: 23,
+            orbital_period: 549,
+            diameter: 7200,
+            climate: 'frozen',
+            gravity: '1.1 standard',
+            terrain: 'tundra, ice caves, mountain ranges',
+            surface_water: 100,
+            population: 'unknown',
+            residents: [],
+            films: [
+                'https://swapi.dev/api/films/2/'
+            ],
+            created: '2014-12-10T11:39:13.934000Z',
+            edited: '2014-12-20T20:58:18.423000Z',
+            url: 'https://swapi.dev/api/planets/4/'
+        },
+        {
+            name: 'Dagobah',
+            rotation_period: 23,
+            orbital_period: 341,
+            diameter: 8900,
+            climate: 'murky',
+            gravity: 'N/A',
+            terrain: 'swamp, jungles',
+            surface_water: 8,
+            population: 'unknown',
+            residents: [],
+            films: [
+                'https://swapi.dev/api/films/2/',
+                'https://swapi.dev/api/films/3/',
+                'https://swapi.dev/api/films/6/'
+            ],
+            created: '2014-12-10T11:42:22.590000Z',
+            edited: '2014-12-20T20:58:18.425000Z',
+            url: 'https://swapi.dev/api/planets/5/'
+        },
+    ];
+
+    console.log(planets);
 
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank" rel="noreferrer">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank" rel="noreferrer">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount(count + 1)}>
-          count is
-          {' '}
-          {count}
-        </button>
-        <p>
-          Edit
-          {' '}
-          <code>src/App.tsx</code>
-          {' '}
-          and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <h1>Planets</h1>
     </>
   );
 }
