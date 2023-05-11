@@ -50,6 +50,8 @@ function App() {
         },
     ];
 
+    const planetsCount = 60;
+
     const renderInfoPlanets = (infoPlanets: IPlanet[]) => {
         return (
             infoPlanets.map(({ name, rotation_period: rotationPeriod, orbital_period: orbitalPeriod, diameter, climate }) => {
@@ -66,10 +68,25 @@ function App() {
         );
     };
 
+    const renderPaginationButton = (totalCount: number, activeNumber: number) => {
+        const numberPerPage = 10;
+        const pagesNumber = Math.ceil(totalCount / numberPerPage);
+        const paginationButtons = [];
+
+        for (let i = 1; i <= pagesNumber; i++) {
+            paginationButtons.push(
+              <li className='pagination__item'>
+                <button className='pagination__button' type="button">{i}</button>
+              </li>
+            );
+        }
+        return paginationButtons;
+    };
+
   return (
-    <section>
+    <section className='planets-section'>
       <h1>Planets</h1>
-      <table className='planets-table'>
+      <table className='planets-section__table planets-table'>
         <tr className='planets-table__row'>
           <th>Name</th>
           <th>Rotation period</th>
@@ -79,6 +96,9 @@ function App() {
         </tr>
         {renderInfoPlanets(planets)}
       </table>
+      <ul className='planets-section__pagination pagination'>
+        {renderPaginationButton(planetsCount, 1)}
+      </ul>
     </section>
   );
 }
