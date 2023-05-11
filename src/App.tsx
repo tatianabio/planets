@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import cx from 'classnames';
 import reactLogo from './assets/react.svg';
 import viteLogo from './assets/vite.svg';
 import './App.css';
@@ -74,9 +75,10 @@ function App() {
         const paginationButtons = [];
 
         for (let i = 1; i <= pagesNumber; i++) {
+            const isActive = activeNumber === i;
             paginationButtons.push(
               <li className='pagination__item'>
-                <button className='pagination__button' type="button">{i}</button>
+                <button className={cx('pagination__button', isActive && 'pagination__button--active')} type="button">{i}</button>
               </li>
             );
         }
