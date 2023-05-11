@@ -54,13 +54,13 @@ function App() {
         return (
             infoPlanets.map(({ name, rotation_period: rotationPeriod, orbital_period: orbitalPeriod, diameter, climate }) => {
                 return (
-                  <li className='planet-info__item' key={name}>
-                    <span>{name}</span>
-                    <span>{rotationPeriod}</span>
-                    <span>{orbitalPeriod}</span>
-                    <span>{diameter}</span>
-                    <span>{climate}</span>
-                  </li>
+                  <tr className='planets-table__row' key={name}>
+                    <td>{name}</td>
+                    <td>{rotationPeriod}</td>
+                    <td>{orbitalPeriod}</td>
+                    <td>{diameter}</td>
+                    <td>{climate}</td>
+                  </tr>
                 );
             })
         );
@@ -69,14 +69,16 @@ function App() {
   return (
     <section>
       <h1>Planets</h1>
-      <div className='planet-info__heading'>
-        <span>Name</span>
-        <span>Rotation period</span>
-        <span>Orbital period</span>
-        <span>Diameter</span>
-        <span>Climate</span>
-      </div>
-      <ul className='planet-info__list'>{renderInfoPlanets(planets)}</ul>
+      <table className='planets-table'>
+        <tr className='planets-table__row'>
+          <th>Name</th>
+          <th>Rotation period</th>
+          <th>Orbital period</th>
+          <th>Diameter</th>
+          <th>Climate</th>
+        </tr>
+        {renderInfoPlanets(planets)}
+      </table>
     </section>
   );
 }
