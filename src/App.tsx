@@ -98,9 +98,14 @@ function App() {
         </tr>
         {renderInfoPlanets(planets)}
       </table>
-      <ul className='planets-section__pagination pagination'>
-        {renderPaginationButton(planetsCount, 1)}
-      </ul>
+      <div className='planets-section__pagination-wrapper pagination'>
+        <button type="button">Previous page</button>
+        <ul className='pagination__buttons'>
+          {renderPaginationButton(planetsCount, 1)}
+        </ul>
+        <button type="button">Next page</button>
+      </div>
+
     </section>
   );
 }
