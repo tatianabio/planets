@@ -6,6 +6,8 @@ export interface IPlanet {
     climate: string,
 }
 
+export const planetsCount = 60;
+
 export const planets: IPlanet[] = [
     {
         name: 'Tatooine',
