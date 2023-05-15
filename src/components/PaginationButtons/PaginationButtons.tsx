@@ -8,7 +8,7 @@ const PaginationButtons = () => {
         const numberPerPage = 10;
         const pagesNumber = Math.ceil(totalCount / numberPerPage);
 
-        const paginationButtons = new Array(pagesNumber);
+        const paginationButtons = Array.from({ length: pagesNumber });
 
         return paginationButtons.map((_, index) => {
             const isActive = activeNumber === index;
