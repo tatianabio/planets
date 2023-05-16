@@ -5,11 +5,12 @@ import './PaginationButtons.scss';
 interface IPaginationButtons {
     totalCount: number;
     activeNumberButton: number;
+    numberPerPage: number;
+    onClick: (any) => void;
 }
 
-const PaginationButtons = ({ totalCount, activeNumberButton }: IPaginationButtons) => {
+const PaginationButtons = ({ totalCount, activeNumberButton, numberPerPage, onClick }: IPaginationButtons) => {
     const renderPaginationButtons = (totalNumber: number, activeNumber: number) => {
-        const numberPerPage = 10;
         const pagesNumber = Math.ceil(totalNumber / numberPerPage);
 
         const paginationButtons = Array.from({ length: pagesNumber });
@@ -19,7 +20,7 @@ const PaginationButtons = ({ totalCount, activeNumberButton }: IPaginationButton
             const paginationButtonText = index + 1;
             return (
               <li key={paginationButtonText} className='pagination-buttons__item'>
-                <button className={cx('pagination-buttons__button', isActive && 'pagination-buttons__button--active')} type="button">{paginationButtonText}</button>
+                <button className={cx('pagination-buttons__button', isActive && 'pagination-buttons__button--active')} type="button" onClick={onClick} disabled={isActive}>{paginationButtonText}</button>
               </li>
             );
         });

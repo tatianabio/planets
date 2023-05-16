@@ -5,12 +5,14 @@ const useGetData = <T>(linkName: string) => {
  const [isLoading, setIsLoading] = useState(false);
  const [data, setData] = useState<T[]>([]);
  const [count, setCount] = useState<number>(0);
-    const getData = async () => {
+ const [numberPerPage, setNumberPerPage] = useState<number>(0);
+    const getData = async (link: string) => {
         try {
             setIsLoading(true);
-            const response = await axios.get(`https://swapi.dev/api/planets/?page=${linkName}`);
+            const response = await axios.get(`https://swapi.dev/api/planets/?page=${link}`);
             setData(response.data.results);
             setCount(response.data.count);
+            setNumberPerPage(response.data.results.length);
         } catch (e) {
             console.log('Error', e);
         } finally {
@@ -18,9 +20,9 @@ const useGetData = <T>(linkName: string) => {
         }
     };
 
-    useEffect(() => { getData().then(); }, []);
+    useEffect(() => { getData(linkName).then(); }, []);
 
- return { data, count, isLoading };
+ return { data, count, isLoading, numberPerPage, getData };
 };
 
 export default useGetData;
