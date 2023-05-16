@@ -5,7 +5,7 @@ import useGetData from './utils/useGetData';
 import { IPlanet } from './mock';
 
 function App() {
-    const { data, isLoading } = useGetData<IPlanet>('2');
+    const { data, count, isLoading } = useGetData<IPlanet>('3');
 
   return (
     <section className='planets-section'>
@@ -16,7 +16,7 @@ function App() {
       </div>
       <div className='planets-section__pagination-wrapper pagination'>
         <button type="button">Previous page</button>
-        <PaginationButtons />
+        <PaginationButtons totalCount={count} activeNumberButton={3} />
         <button type="button">Next page</button>
       </div>
 
