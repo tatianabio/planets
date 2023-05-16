@@ -6,7 +6,7 @@ interface IPaginationButtons {
     totalCount: number;
     activeNumberButton: number;
     numberPerPage: number;
-    onClick: (any) => void;
+    onClick: (data: React.MouseEvent<HTMLButtonElement>) => void;
 }
 
 const PaginationButtons = ({ totalCount, activeNumberButton, numberPerPage, onClick }: IPaginationButtons) => {

@@ -13,8 +13,8 @@ function App() {
         getData(`${currentPageNumber}`).then();
     };
 
-    const onClickHandler = (event: any) => {
-        const buttonNumber = event.target.textContent;
+    const onClickHandler = (event: React.MouseEvent<HTMLButtonElement>) => {
+        const buttonNumber = (event.target as HTMLButtonElement).textContent;
         setCurrentPage(+buttonNumber);
     };
 
