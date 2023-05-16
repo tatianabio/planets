@@ -1,8 +1,12 @@
 import React from 'react';
-import { IPlanet, planets } from '../../mock';
+import { IPlanet } from '../../mock';
 import './PlanetsTable.scss';
 
-const PlanetsTable = () => {
+interface IPlanetsTable {
+    planetsData: IPlanet[];
+}
+
+const PlanetsTable = ({ planetsData }: IPlanetsTable) => {
     const renderInfoPlanets = (infoPlanets: IPlanet[]) => {
         return (
             infoPlanets.map(({ name, rotation_period: rotationPeriod, orbital_period: orbitalPeriod, diameter, climate }) => {
@@ -31,7 +35,7 @@ const PlanetsTable = () => {
           </tr>
         </thead>
         <tbody>
-          {renderInfoPlanets(planets)}
+          {renderInfoPlanets(planetsData)}
         </tbody>
 
       </table>

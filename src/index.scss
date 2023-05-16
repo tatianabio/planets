@@ -26,6 +26,17 @@ h1 {
   align-items: center;
 }
 
+.planets-section__container {
+  position: relative;
+}
+
+.planets-section__loading {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
 .pagination {
   width: 100%;
   display: flex;
