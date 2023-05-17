@@ -2,11 +2,11 @@ import React, { useState } from 'react';
 import cx from 'classnames';
 import styled from 'styled-components';
 import PlanetsTable from './components/PlanetsTable/PlanetsTable';
-import PaginationButtons from './components/PaginationButtons/PaginationButtons';
 import useGetData from './utils/useGetData';
 import { IPlanet } from './mock';
 import GlobalStyle from './GlobalStyle';
 import StyledTitle from './components/Title/TitleStyles';
+import StyledPaginationButtons from './components/PaginationButtons/StyledPaginationButtons';
 
 function App({ className }:{className: string}) {
     const [currentPage, setCurrentPage] = useState<number>(1);
@@ -33,7 +33,7 @@ function App({ className }:{className: string}) {
       </div>
       <div className='planets-section__pagination-wrapper pagination'>
         <button type="button" disabled={isFirstPage} onClick={() => setCurrentPage(currentPage - 1)}>Previous page</button>
-        <PaginationButtons totalCount={count} activeNumberButton={currentPage} numberPerPage={numberPerPage} onClick={onClickHandler} />
+        <StyledPaginationButtons totalCount={count} activeNumberButton={currentPage} numberPerPage={numberPerPage} onClick={onClickHandler} />
         <button type="button" disabled={isLastPage} onClick={() => setCurrentPage(currentPage + 1)}>Next page</button>
       </div>
 

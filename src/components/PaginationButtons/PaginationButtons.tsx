@@ -1,15 +1,16 @@
 import React from 'react';
 import cx from 'classnames';
-import './PaginationButtons.scss';
+import styled from 'styled-components';
 
 interface IPaginationButtons {
     totalCount: number;
     activeNumberButton: number;
     numberPerPage: number;
     onClick: (data: React.MouseEvent<HTMLButtonElement>) => void;
+    className: string;
 }
 
-const PaginationButtons = ({ totalCount, activeNumberButton, numberPerPage, onClick }: IPaginationButtons) => {
+const PaginationButtons = ({ totalCount, activeNumberButton, numberPerPage, onClick, className }: IPaginationButtons) => {
     const renderPaginationButtons = (totalNumber: number, activeNumber: number) => {
         const pagesNumber = Math.ceil(totalNumber / numberPerPage);
 
@@ -26,10 +27,10 @@ const PaginationButtons = ({ totalCount, activeNumberButton, numberPerPage, onCl
         });
     };
     return (
-      <ul className='pagination-buttons'>
+      <ul className={cx('pagination-buttons', className)}>
         {renderPaginationButtons(totalCount, activeNumberButton)}
       </ul>
     );
 };
 
-export default PaginationButtons;
+export default styled(PaginationButtons)``;
