@@ -1,5 +1,5 @@
 import './App.css';
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import PlanetsTable from './components/PlanetsTable/PlanetsTable';
 import PaginationButtons from './components/PaginationButtons/PaginationButtons';
 import useGetData from './utils/useGetData';
@@ -7,20 +7,12 @@ import { IPlanet } from './mock';
 
 function App() {
     const [currentPage, setCurrentPage] = useState<number>(1);
-    const { data, count, isLoading, numberPerPage, getData } = useGetData<IPlanet>(`${currentPage}`);
-
-    const renderData = (currentPageNumber: number) => {
-        getData(`${currentPageNumber}`).then();
-    };
+    const { data, count, isLoading, numberPerPage } = useGetData<IPlanet>(`${currentPage}`);
 
     const onClickHandler = (event: React.MouseEvent<HTMLButtonElement>) => {
         const buttonNumber = (event.target as HTMLButtonElement).textContent;
         setCurrentPage(+buttonNumber);
     };
-
-    useEffect(() => {
-        renderData(currentPage);
-    }, [currentPage]);
 
     const pagesNumber = Math.ceil(count / numberPerPage);
 
