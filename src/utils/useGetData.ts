@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 
-const useGetData = <T>(linkName: string) => {
+const useGetData = <T>() => {
  const [isLoading, setIsLoading] = useState(false);
  const [data, setData] = useState<T[]>([]);
  const [count, setCount] = useState<number>(0);
@@ -20,7 +20,7 @@ const useGetData = <T>(linkName: string) => {
         }
     };
 
-    useEffect(() => { getData(linkName).then(); }, []);
+    useEffect(() => { getData('1').then(); }, []);
 
  return { data, count, isLoading, numberPerPage, getData };
 };
