@@ -1,5 +1,4 @@
 import React from 'react';
-import cx from 'classnames';
 import styled from 'styled-components';
 import { IPlanet } from '../../mock';
 
@@ -13,7 +12,7 @@ const PlanetsTable = ({ planetsData, className }: IPlanetsTable) => {
         return (
             infoPlanets.map(({ name, rotation_period: rotationPeriod, orbital_period: orbitalPeriod, diameter, climate }) => {
                 return (
-                  <tr className='planets-table__row' key={name}>
+                  <tr className='row' key={name}>
                     <td>{name}</td>
                     <td>{rotationPeriod}</td>
                     <td>{orbitalPeriod}</td>
@@ -26,9 +25,9 @@ const PlanetsTable = ({ planetsData, className }: IPlanetsTable) => {
     };
 
     return (
-      <table className={cx('planets-table', className)}>
+      <table className={className}>
         <thead>
-          <tr className='planets-table__row'>
+          <tr className='row'>
             <th>Name</th>
             <th>Rotation period</th>
             <th>Orbital period</th>

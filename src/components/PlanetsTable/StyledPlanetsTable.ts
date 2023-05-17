@@ -6,13 +6,13 @@ const StyledPlanetsTable = styled(PlanetsTable)`
   min-height: 364px;
   min-width: 670px;
 
-  .planets-table__row th {
+  .row th {
     padding: 4px 12px;
     border-top: 2px solid black;
     border-bottom: 2px solid black;
   }
 
-  .planets-table__row td {
+  .row td {
     padding: 4px 8px;
     border-bottom: 1px solid grey;
   }
