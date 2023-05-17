@@ -8,11 +8,11 @@ const StyledPaginationButtons = styled(PaginationButtons)`
   flex-wrap: wrap;
   list-style: none;
 
-  .pagination-buttons__item + .pagination-buttons__item {
+  .item + .item {
     margin-left: 12px;
   }
 
-  .pagination-buttons__button {
+  .button {
     font-weight: bold;
     width: 40px;
     height: 40px;
@@ -38,10 +38,10 @@ const StyledPaginationButtons = styled(PaginationButtons)`
     }
   }
 
-  .pagination-buttons__button--active,
-  .pagination-buttons__button--active:hover,
-  .pagination-buttons__button--active:focus,
-  .pagination-buttons__button--active:active
+  .button--active,
+  .button--active:hover,
+  .button--active:focus,
+  .button--active:active
   {
     color: white;
     cursor: default;

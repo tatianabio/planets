@@ -20,14 +20,14 @@ const PaginationButtons = ({ totalCount, activeNumberButton, numberPerPage, onCl
             const isActive = activeNumber === index + 1;
             const paginationButtonText = index + 1;
             return (
-              <li key={paginationButtonText} className='pagination-buttons__item'>
-                <button className={cx('pagination-buttons__button', isActive && 'pagination-buttons__button--active')} type="button" onClick={onClick} disabled={isActive}>{paginationButtonText}</button>
+              <li key={paginationButtonText} className='item'>
+                <button className={cx('button', isActive && 'button--active')} type="button" onClick={onClick} disabled={isActive}>{paginationButtonText}</button>
               </li>
             );
         });
     };
     return (
-      <ul className={cx('pagination-buttons', className)}>
+      <ul className={className}>
         {renderPaginationButtons(totalCount, activeNumberButton)}
       </ul>
     );
