@@ -7,12 +7,12 @@ const StyledApp = styled(App)`
   flex-direction: column;
   align-items: center;
 
-  .planets-section__container {
+  .container {
     position: relative;
 
   }
 
-  .planets-section__loading {
+  .loading {
     position: absolute;
     display: grid;
     place-content: center;
@@ -26,7 +26,7 @@ const StyledApp = styled(App)`
     box-shadow: 0 0 0 3px grey;
   }
 
-  .pagination {
+  .pagination-wrapper {
     width: 100%;
     display: flex;
     justify-content: space-between;
