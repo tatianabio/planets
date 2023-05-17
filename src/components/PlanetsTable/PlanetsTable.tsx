@@ -1,12 +1,14 @@
 import React from 'react';
+import cx from 'classnames';
+import styled from 'styled-components';
 import { IPlanet } from '../../mock';
-import './PlanetsTable.scss';
 
 interface IPlanetsTable {
     planetsData: IPlanet[];
+    className: string;
 }
 
-const PlanetsTable = ({ planetsData }: IPlanetsTable) => {
+const PlanetsTable = ({ planetsData, className }: IPlanetsTable) => {
     const renderInfoPlanets = (infoPlanets: IPlanet[]) => {
         return (
             infoPlanets.map(({ name, rotation_period: rotationPeriod, orbital_period: orbitalPeriod, diameter, climate }) => {
@@ -24,7 +26,7 @@ const PlanetsTable = ({ planetsData }: IPlanetsTable) => {
     };
 
     return (
-      <table className='planets-table'>
+      <table className={cx('planets-table', className)}>
         <thead>
           <tr className='planets-table__row'>
             <th>Name</th>
@@ -42,4 +44,4 @@ const PlanetsTable = ({ planetsData }: IPlanetsTable) => {
     );
 };
 
-export default PlanetsTable;
+export default styled(PlanetsTable)``;

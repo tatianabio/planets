@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import cx from 'classnames';
 import styled from 'styled-components';
-import PlanetsTable from './components/PlanetsTable/PlanetsTable';
 import useGetData from './utils/useGetData';
 import { IPlanet } from './mock';
 import GlobalStyle from './GlobalStyle';
 import StyledTitle from './components/Title/TitleStyles';
 import StyledPaginationButtons from './components/PaginationButtons/StyledPaginationButtons';
+import StyledPlanetsTable from './components/PlanetsTable/StyledPlanetsTable';
 
 function App({ className }:{className: string}) {
     const [currentPage, setCurrentPage] = useState<number>(1);
@@ -28,7 +28,7 @@ function App({ className }:{className: string}) {
       <h1>Planets</h1>
       <StyledTitle />
       <div className='planets-section__container'>
-        <PlanetsTable planetsData={data} />
+        <StyledPlanetsTable planetsData={data} />
         {isLoading && <div className='planets-section__loading'><span>Loading...</span></div>}
       </div>
       <div className='planets-section__pagination-wrapper pagination'>
