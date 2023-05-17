@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import useGetData from './utils/useGetData';
 import { IPlanet } from './mock';
 import GlobalStyle from './GlobalStyle';
-import StyledTitle from './components/Title/TitleStyles';
+import StyledTitle from './components/Title/StyledTitle';
 import StyledPaginationButtons from './components/PaginationButtons/StyledPaginationButtons';
 import StyledPlanetsTable from './components/PlanetsTable/StyledPlanetsTable';
 
