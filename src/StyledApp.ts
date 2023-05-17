@@ -6,7 +6,32 @@ const StyledApp = styled(App)`
   gap: 20px;
   flex-direction: column;
   align-items: center;
-  background: lightgrey;
+
+  .planets-section__container {
+    position: relative;
+
+  }
+
+  .planets-section__loading {
+    position: absolute;
+    display: grid;
+    place-content: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    min-width: 400px;
+    min-height: 200px;
+    background-color: white;
+    border-radius: 20px;
+    box-shadow: 0 0 0 3px grey;
+  }
+
+  .pagination {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
+
 `;
 
 export default StyledApp;
