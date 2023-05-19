@@ -7,10 +7,9 @@ interface IPaginationButtons {
     activeNumberButton: number;
     numberPerPage: number;
     onClick: (data: React.MouseEvent<HTMLButtonElement>) => void;
-    className: string;
 }
 
-const PaginationButtons = ({ totalCount, activeNumberButton, numberPerPage, onClick, className }: IPaginationButtons) => {
+const PaginationButtons = ({ totalCount, activeNumberButton, numberPerPage, onClick }: IPaginationButtons) => {
     const renderPaginationButtons = (totalNumber: number, activeNumber: number) => {
         const pagesNumber = Math.ceil(totalNumber / numberPerPage);
 
@@ -27,7 +26,7 @@ const PaginationButtons = ({ totalCount, activeNumberButton, numberPerPage, onCl
         });
     };
     return (
-      <StyledUl className={className}>
+      <StyledUl>
         {renderPaginationButtons(totalCount, activeNumberButton)}
       </StyledUl>
     );

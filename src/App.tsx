@@ -3,8 +3,8 @@ import styled from 'styled-components';
 import useGetData from './utils/useGetData';
 import { IPlanet } from './mock';
 import GlobalStyle from './styles/GlobalStyle';
-import StyledPlanetsTable from './components/PlanetsTable/StyledPlanetsTable';
 import PaginationButtons from './components/PaginationButtons/PaginationButtons';
+import PlanetsTable from './components/PlanetsTable/PlanetsTable';
 
 function App({ className }:{className: string}) {
     const [currentPage, setCurrentPage] = useState<number>(1);
@@ -25,7 +25,7 @@ function App({ className }:{className: string}) {
       <GlobalStyle />
       <h1>Planets</h1>
       <div className='container'>
-        <StyledPlanetsTable planetsData={data} />
+        <PlanetsTable planetsData={data} />
         {isLoading && <div className='loading'><span>Loading...</span></div>}
       </div>
       <div className='pagination-wrapper'>

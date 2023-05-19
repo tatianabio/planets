@@ -1,7 +1,6 @@
 import styled from 'styled-components';
-import PlanetsTable from './PlanetsTable';
 
-const StyledPlanetsTable = styled(PlanetsTable)`
+const StyledTable = styled.table`
   border-collapse: collapse;
   min-height: 364px;
   min-width: 670px;
@@ -18,4 +17,4 @@ const StyledPlanetsTable = styled(PlanetsTable)`
   }
 `;
 
-export default StyledPlanetsTable;
+export default StyledTable;

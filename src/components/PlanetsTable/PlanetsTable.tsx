@@ -1,13 +1,12 @@
 import React from 'react';
-import styled from 'styled-components';
 import { IPlanet } from '../../mock';
+import StyledTable from '../../styles/StyledTable';
 
 interface IPlanetsTable {
     planetsData: IPlanet[];
-    className: string;
 }
 
-const PlanetsTable = ({ planetsData, className }: IPlanetsTable) => {
+const PlanetsTable = ({ planetsData }: IPlanetsTable) => {
     const renderInfoPlanets = (infoPlanets: IPlanet[]) => {
         return (
             infoPlanets.map(({ name, rotation_period: rotationPeriod, orbital_period: orbitalPeriod, diameter, climate }) => {
@@ -25,7 +24,7 @@ const PlanetsTable = ({ planetsData, className }: IPlanetsTable) => {
     };
 
     return (
-      <table className={className}>
+      <StyledTable>
         <thead>
           <tr className='row'>
             <th>Name</th>
@@ -39,8 +38,8 @@ const PlanetsTable = ({ planetsData, className }: IPlanetsTable) => {
           {renderInfoPlanets(planetsData)}
         </tbody>
 
-      </table>
+      </StyledTable>
     );
 };
 
-export default styled(PlanetsTable)``;
+export default PlanetsTable;
