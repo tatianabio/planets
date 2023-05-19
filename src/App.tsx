@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import useGetData from './utils/useGetData';
 import { IPlanet } from './mock';
-import GlobalStyle from './GlobalStyle';
+import GlobalStyle from './styles/GlobalStyle';
 import StyledPaginationButtons from './components/PaginationButtons/StyledPaginationButtons';
 import StyledPlanetsTable from './components/PlanetsTable/StyledPlanetsTable';
 

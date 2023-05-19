@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import StyledPaginationButton from '../../StyledPaginationButton';
+import StyledPaginationButton from '../../styles/StyledPaginationButton';
 
 interface IPaginationButtons {
     totalCount: number;
