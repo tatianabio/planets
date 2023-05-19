@@ -1,7 +1,6 @@
 import styled from 'styled-components';
-import PaginationButtons from './PaginationButtons';
 
-const StyledPaginationButtons = styled(PaginationButtons)`
+const StyledUl = styled.ul`
   margin: 0;
   padding: 0;
   display: flex;
@@ -13,4 +12,4 @@ const StyledPaginationButtons = styled(PaginationButtons)`
   }
 `;
 
-export default StyledPaginationButtons;
+export default StyledUl;

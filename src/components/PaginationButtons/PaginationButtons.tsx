@@ -1,6 +1,6 @@
 import React from 'react';
-import styled from 'styled-components';
 import StyledPaginationButton from '../../styles/StyledPaginationButton';
+import StyledUl from '../../styles/StyledUl';
 
 interface IPaginationButtons {
     totalCount: number;
@@ -27,10 +27,10 @@ const PaginationButtons = ({ totalCount, activeNumberButton, numberPerPage, onCl
         });
     };
     return (
-      <ul className={className}>
+      <StyledUl className={className}>
         {renderPaginationButtons(totalCount, activeNumberButton)}
-      </ul>
+      </StyledUl>
     );
 };
 
-export default styled(PaginationButtons)``;
+export default PaginationButtons;
