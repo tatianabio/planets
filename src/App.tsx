@@ -3,7 +3,6 @@ import styled from 'styled-components';
 import useGetData from './utils/useGetData';
 import { IPlanet } from './mock';
 import GlobalStyle from './GlobalStyle';
-import StyledTitle from './components/Title/StyledTitle';
 import StyledPaginationButtons from './components/PaginationButtons/StyledPaginationButtons';
 import StyledPlanetsTable from './components/PlanetsTable/StyledPlanetsTable';
 
@@ -25,7 +24,6 @@ function App({ className }:{className: string}) {
     <section className={className}>
       <GlobalStyle />
       <h1>Planets</h1>
-      <StyledTitle />
       <div className='container'>
         <StyledPlanetsTable planetsData={data} />
         {isLoading && <div className='loading'><span>Loading...</span></div>}
