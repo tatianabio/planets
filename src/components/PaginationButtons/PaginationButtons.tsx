@@ -1,6 +1,6 @@
 import React from 'react';
-import cx from 'classnames';
-import './PaginationButtons.scss';
+import StyledPaginationButton from '../../styles/StyledPaginationButton';
+import StyledUl from '../../styles/StyledUl';
 
 interface IPaginationButtons {
     totalCount: number;
@@ -19,16 +19,16 @@ const PaginationButtons = ({ totalCount, activeNumberButton, numberPerPage, onCl
             const isActive = activeNumber === index + 1;
             const paginationButtonText = index + 1;
             return (
-              <li key={paginationButtonText} className='pagination-buttons__item'>
-                <button className={cx('pagination-buttons__button', isActive && 'pagination-buttons__button--active')} type="button" onClick={onClick} disabled={isActive}>{paginationButtonText}</button>
+              <li key={paginationButtonText} className='item'>
+                <StyledPaginationButton $isActive={isActive} type="button" onClick={onClick} disabled={isActive}>{paginationButtonText}</StyledPaginationButton>
               </li>
             );
         });
     };
     return (
-      <ul className='pagination-buttons'>
+      <StyledUl>
         {renderPaginationButtons(totalCount, activeNumberButton)}
-      </ul>
+      </StyledUl>
     );
 };
 

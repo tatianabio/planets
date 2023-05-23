@@ -1,11 +1,12 @@
-import './App.css';
 import React, { useState } from 'react';
-import PlanetsTable from './components/PlanetsTable/PlanetsTable';
-import PaginationButtons from './components/PaginationButtons/PaginationButtons';
+import styled from 'styled-components';
 import useGetData from './utils/useGetData';
 import { IPlanet } from './mock';
+import GlobalStyle from './styles/GlobalStyle';
+import PaginationButtons from './components/PaginationButtons/PaginationButtons';
+import PlanetsTable from './components/PlanetsTable/PlanetsTable';
 
-function App() {
+function App({ className }:{className: string}) {
     const [currentPage, setCurrentPage] = useState<number>(1);
     const { data, count, isLoading, numberPerPage } = useGetData<IPlanet>(`${currentPage}`);
 
@@ -20,13 +21,14 @@ function App() {
     const isLastPage = currentPage === pagesNumber;
 
   return (
-    <section className='planets-section'>
+    <section className={className}>
+      <GlobalStyle />
       <h1>Planets</h1>
-      <div className='planets-section__container'>
+      <div className='container'>
         <PlanetsTable planetsData={data} />
-        {isLoading && <div className='planets-section__loading'><span>Loading...</span></div>}
+        {isLoading && <div className='loading'><span>Loading...</span></div>}
       </div>
-      <div className='planets-section__pagination-wrapper pagination'>
+      <div className='pagination-wrapper'>
         <button type="button" disabled={isFirstPage} onClick={() => setCurrentPage(currentPage - 1)}>Previous page</button>
         <PaginationButtons totalCount={count} activeNumberButton={currentPage} numberPerPage={numberPerPage} onClick={onClickHandler} />
         <button type="button" disabled={isLastPage} onClick={() => setCurrentPage(currentPage + 1)}>Next page</button>
@@ -36,4 +38,4 @@ function App() {
   );
 }
 
-export default App;
+export default styled(App)``;
