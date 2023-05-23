@@ -9,7 +9,7 @@ import PaginationButtons from './components/PaginationButtons/PaginationButtons'
 function App({ className }:{className: string}) {
     const [currentPage, setCurrentPage] = useState<number>(1);
 
-    const { data, isLoading } = useQuery(['planets', currentPage], () => getPlanetsData(`${currentPage}`));
+    const { data, isLoading } = useQuery(['planets', currentPage], () => getPlanetsData(`${currentPage}`), { keepPreviousData: true, refetchOnWindowFocus: false });
 
     const planetsData = data?.results || [];
     const count = data?.count;

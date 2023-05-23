@@ -30,6 +30,7 @@ const StyledApp = styled(App)`
     width: 100%;
     display: flex;
     justify-content: space-between;
+    min-height: 40px;
   }
 
 `;
