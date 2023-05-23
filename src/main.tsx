@@ -6,10 +6,7 @@ import StyledApp from './styles/StyledApp';
 const queryClient = new QueryClient();
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
-  <React.StrictMode>
-    <QueryClientProvider client={queryClient}>
-      <StyledApp />
-    </QueryClientProvider>
-
-  </React.StrictMode>,
+  <QueryClientProvider client={queryClient}>
+    <StyledApp />
+  </QueryClientProvider>
 );
