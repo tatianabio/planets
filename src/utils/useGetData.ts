@@ -1,4 +1,4 @@
-import axios from 'axios';
+import axios, { AxiosResponse } from 'axios';
 import { useQuery } from '@tanstack/react-query';
 import { IPlanet } from '../mock';
 
@@ -7,14 +7,15 @@ interface IPlanetsData {
     count: number;
 }
 
+const fetchPlanetsData = async (page: number): Promise<IPlanetsData> => {
+    const result = await axios.get<IPlanetsData, AxiosResponse<IPlanetsData>>(`https://swapi.dev/api/planets/?page=${page}`);
+
+    return result.data;
+};
+fetchPlanetsData.id = 'planets';
+
 const useGetData = (currentPage: number) => {
-    const fetchData = async (page: number): Promise<IPlanetsData> => {
-        const { data } = await axios.get(`https://swapi.dev/api/planets/?page=${page}`);
-
-        return data as IPlanetsData;
-    };
-
-    const { data: planetsData, isLoading: isPlanetDataLoading } = useQuery(['planets', currentPage], () => fetchData(currentPage), { keepPreviousData: true, refetchOnWindowFocus: false });
+    const { data: planetsData, isLoading: isPlanetDataLoading } = useQuery([fetchPlanetsData.id, currentPage], () => fetchPlanetsData(currentPage), { keepPreviousData: true, refetchOnWindowFocus: false });
 
     const planetsArray = planetsData?.results || [];
     const planetsCount = planetsData?.count;
